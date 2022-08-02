@@ -1,6 +1,6 @@
 # chat-mern
 
-This application is written using technologies such as ReactJS, Redux-Toolkit, Redux-Persist, Socket.io , NodeJS, Express.
+This application is written using technologies such as ReactJS, Redux-Toolkit, Redux-Persist, Socket.io , NodeJS, Express, MongoDB, Cloudinary.
 
 Part of the backend can be started using the command `npm run dev`.
 Part of the frontend can be started using the command `npm start`.
