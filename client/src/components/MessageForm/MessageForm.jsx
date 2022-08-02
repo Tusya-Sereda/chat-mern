@@ -11,7 +11,6 @@ export const MessageForm = () => {
   const messageEndRef = useRef(null);
   const [message, setMessage] = useState("");
   const [isChooseEmoji, setIsChooseEmoji] = useState(false);
-  const [chosenEmoji, setChosenEmoji] = useState(null);
 
   const user = useSelector((state) => state.user);
 
@@ -25,13 +24,16 @@ export const MessageForm = () => {
   };
 
   const onEmojiClick = (event, emojiObject) => {
-    setChosenEmoji(emojiObject);
+    const messageItems = message + emojiObject.emoji;
+    setMessage(messageItems);
   };
-
-  console.log("---isChooseEmoji", isChooseEmoji);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (isChooseEmoji) {
+      setIsChooseEmoji(false);
+    }
 
     if (!message) return;
 
@@ -50,7 +52,6 @@ export const MessageForm = () => {
   };
 
   socket.off("room-messages").on("room-messages", (roomMessages) => {
-    console.log("---roomMessages", roomMessages);
     setMessages(roomMessages);
   });
 
